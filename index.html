@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About HTTP — Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--
+  index.html - Homepage for the HTTP mini-site
+  - Contains the main navigation shared across pages
+  - Table of contents, brief abstract, and preview cards
+  Comments are included to explain structure for future editing.
+-->
+
+<header>
+    <h1>Understanding HTTP</h1>
+    <p class="subtitle">A short project site introducing HTTP, its methods, and key concepts</p>
+    <!-- Main site navigation (kept consistent across all pages) -->
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="topic1.html">HTTP Basics</a>
+        <a href="topic2.html">HTTP Methods</a>
+        <a href="key_concepts.html">Key Concepts</a>
+        <a href="references.html">References</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+<main class="container">
+    <aside class="sidebar">
+        <!-- Sidebar cards provide quick links and key terms -->
+        <section class="card">
+            <h2>Table of Contents</h2>
+            <ol id="toc">
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="topic1.html">HTTP Basics</a></li>
+                <li><a href="topic2.html">HTTP Methods</a></li>
+                <li><a href="key_concepts.html">Key Concepts</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ol>
+        </section>
+        <section class="card">
+            <h3>Key Terms</h3>
+            <!-- Simple unordered list of vocabulary for quick reference -->
+            <ul>
+                <li>HTTP</li>
+                <li>Request / Response</li>
+                <li>URI</li>
+                <li>Status Codes</li>
+                <li>Methods (GET, POST...)</li>
+            </ul>
+        </section>
+    </aside>
+
+    <section class="content">
+        <!-- Main page content: abstract, image, previews -->
+        <article>
+            <h2>Abstract</h2>
+            <p>This mini-website is a starting point for researching the Hypertext Transfer Protocol (HTTP). Over the next milestones the content will expand; for now the pages introduce the protocol, show typical methods, and list key concepts and references to learn more.</p>
+        </article>
+
+        <article>
+            <h2>Quick Start</h2>
+            <p>Use the menu above or the table of contents to visit the dedicated topic pages. Each page includes headings, lists, an illustrative image, and a small data table where appropriate.</p>
+            <img src="https://via.placeholder.com/600x200?text=HTTP+Overview" alt="HTTP overview illustration">
+        </article>
+
+        <article>
+            <h2>Preview of Topic Pages</h2>
+            <p>Below are short previews of two topic pages included in this milestone.</p>
+            <div class="preview-grid">
+                <div class="card">
+                    <h3><a href="topic1.html">HTTP Basics</a></h3>
+                    <p>What is HTTP, how it works at a high level, and the request/response cycle.</p>
+                </div>
+                <div class="card">
+                    <h3><a href="topic2.html">HTTP Methods</a></h3>
+                    <p>Overview of common methods (GET, POST, PUT, DELETE) and when to use them.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <!-- Footer with a small navigation reminder -->
+    <p>Project milestone 1 — basic site structure and style. &middot; <a href="about.html">About the author</a></p>
+</footer>
+</body>
+</html>
