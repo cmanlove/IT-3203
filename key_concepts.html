@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Key Concepts — HTTP</title>
+    <!-- Use one shared stylesheet for consistent design across pages -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Page: key_concepts.html — explains 5 key concepts with quick links in the sidebar -->
+<header>
+    <h1>Key Concepts</h1>
+    <nav class="site-nav">
+        <a href="Website.html">Home</a>
+        <a href="topic1.html">HTTP Basics</a>
+        <a href="topic2.html">HTTP Methods</a>
+        <a href="key_concepts.html">Key Concepts</a>
+        <a href="references.html">References</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+<main class="container">
+    <aside class="sidebar">
+        <section class="card">
+            <h2>Quick links</h2>
+            <ul>
+                <li><a href="#stateless">Statelessness</a></li>
+                <li><a href="#headers">Headers</a></li>
+                <li><a href="#status">Status Codes</a></li>
+                <li><a href="#security">Security (TLS)</a></li>
+                <li><a href="#caching">Caching</a></li>
+            </ul>
+        </section>
+    </aside>
+
+    <section class="content">
+        <article id="stateless">
+            <h2>Statelessness</h2>
+            <!-- Each article uses an id so the sidebar can link directly to it -->
+            <p>HTTP is a stateless protocol: each request is independent, and the server does not keep client state between requests unless explicitly implemented (cookies, sessions).</p>
+        </article>
+
+        <article id="headers">
+            <h2>Headers</h2>
+            <p>Headers carry meta information (Content-Type, Content-Length, Authorization, Cache-Control). They shape how requests and responses are interpreted.</p>
+        </article>
+
+        <article id="status">
+            <h2>Status Codes</h2>
+            <p>Status codes signal the result of the request. Ranges: 1xx informational, 2xx success, 3xx redirection, 4xx client error, 5xx server error.</p>
+        </article>
+
+        <article id="security">
+            <h2>Security (TLS)</h2>
+            <p>Transport Layer Security (TLS) secures HTTP traffic; when used, the scheme becomes HTTPS and encrypts data between client and server.</p>
+        </article>
+
+        <article id="caching">
+            <h2>Caching</h2>
+            <p>Caching improves performance by storing responses with defined freshness. Cache headers control behavior (Expires, Cache-Control, ETag).</p>
+        </article>
+
+        <article>
+            <h2>Further concepts (brief)</h2>
+            <ul>
+                <li>REST — architectural style on top of HTTP</li>
+                <li>WebSockets — different protocol for bidirectional comms</li>
+                <li>Content negotiation — selecting format via Accept headers</li>
+            </ul>
+        </article>
+    </section>
+</main>
+<footer>
+    <p class="muted">Return to <a href="Website.html">Home</a></p>
+</footer>
+</body>
+</html>

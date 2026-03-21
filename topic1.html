@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HTTP Basics</title>
+    <!-- Single shared stylesheet for the entire site -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Page: topic1.html — HTTP Basics
+     Contains examples of headings, lists, a preformatted request sample, and a small table.
+     Navigation menu at top is kept identical to other pages for consistency.
+-->
+<header>
+    <h1>HTTP Basics</h1>
+    <nav class="site-nav">
+        <a href="Website.html">Home</a>
+        <a href="topic1.html">HTTP Basics</a>
+        <a href="topic2.html">HTTP Methods</a>
+        <a href="key_concepts.html">Key Concepts</a>
+        <a href="references.html">References</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+<main class="container">
+    <aside class="sidebar">
+        <section class="card">
+            <h2>On this page</h2>
+            <!-- Use unordered list to show what the page covers -->
+            <ul>
+                <li>What is HTTP?</li>
+                <li>Request / Response cycle</li>
+                <li>Client / Server</li>
+            </ul>
+        </section>
+    </aside>
+
+    <section class="content">
+        <article>
+            <h2>What is HTTP?</h2>
+            <!-- Short paragraph explaining the protocol -->
+            <p>HTTP (Hypertext Transfer Protocol) is an application-layer protocol used to transfer hypermedia documents, such as HTML. It follows a client-server model where requests are sent by clients and responses returned by servers.</p>
+        </article>
+
+        <article>
+            <h2>Request / Response Cycle</h2>
+            <!-- Ordered list to show the sequence of steps in the cycle -->
+            <ol>
+                <li>Client opens connection and sends a request message.</li>
+                <li>Server processes the request and returns a response message.</li>
+                <li>Connection may be kept alive or closed depending on headers.</li>
+            </ol>
+            <h3>Example request headers</h3>
+            <!-- Preformatted block preserves formatting for a sample HTTP request -->
+            <pre>
+GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: example-client/1.0
+            </pre>
+        </article>
+
+        <article>
+            <h2>Small comparison table</h2>
+            <!-- Simple table demonstrating table elements and the stylesheet's table styles -->
+            <table>
+                <thead>
+                    <tr><th>Role</th><th>Typical software</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Client</td><td>Browsers, API clients</td></tr>
+                    <tr><td>Server</td><td>Web servers (Nginx, Apache)</td></tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+</main>
+<footer>
+    <p class="muted">Return to <a href="Website.html">Home</a></p>
+</footer>
+</body>
+</html>
