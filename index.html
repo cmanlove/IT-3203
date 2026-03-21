@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Understanding HTTP — Single File</title>
+  <!--
+    index.html -- self-contained single-file version of the site.
+    - All pages merged into one document with internal anchors for navigation.
+    - CSS is inlined to avoid external dependencies (useful when opening from zip).
+    - Comments explain structure for future editing.
+  -->
+  <style>
+    /* Inline stylesheet demonstrating selectors and layout
+       - element selector: body
+       - class selectors: .site-nav, .card
+       - id selector: #toc
+       - descendant selector: .sidebar h3
+       - grid/flex layout, hover effects, margins, paddings, borders, fonts */
+    :root{--bg:#f5f7fb;--card:#ffffff;--accent:#2b6cb0;--muted:#6b7280}
+    body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin:0;padding:0;background:var(--bg);color:#111827}
+    header{background:linear-gradient(90deg,var(--accent),#4c9bd6);color:white;padding:1rem 2rem}
+    header h1{margin:0}header .subtitle{margin-top:0.25rem;opacity:0.95}
+    .site-nav{margin-top:0.75rem}
+    .site-nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-right:1rem;padding:0.25rem 0.5rem;border-radius:4px}
+    .site-nav a:hover{background:rgba(255,255,255,0.12)}
+
+    .container{display:grid;grid-template-columns:260px 1fr;gap:1rem;padding:1.5rem 2rem}
+    .sidebar .card{background:var(--card);padding:1rem;margin-bottom:1rem;border-radius:6px;border:1px solid #e6edf6}
+    .content article{background:var(--card);padding:1rem;margin-bottom:1rem;border-radius:6px;border:1px solid #e6edf6}
+    .preview-grid{display:flex;gap:1rem}
+    .preview-grid .card{flex:1}
+    img{max-width:100%;height:auto}
+    footer{padding:1rem 2rem;color:var(--muted);font-size:0.9rem}
+
+    #toc a{color:var(--accent);text-decoration:none}#toc a:hover{text-decoration:underline}
+    table{width:100%;border-collapse:collapse}th,td{padding:0.5rem;border:1px solid #e6edf6;text-align:left}
+    @media (max-width:800px){.container{grid-template-columns:1fr;padding:1rem}.preview-grid{flex-direction:column}}
+    .muted{color:var(--muted)}.sidebar h3{margin:0 0 0.5rem 0}.content a{color:var(--accent)}.content a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+<!--
+  Main structure
+  - Header with navigation (anchors that point to sections within this file)
+  - Two-column main area: sidebar + content (CSS grid)
+  - Footer
+-->
+<header>
+  <h1>Understanding HTTP</h1>
+  <p class="subtitle">A short project site introducing HTTP, its methods, and core concepts</p>
+  <nav class="site-nav">
+    <a href="#home">Home</a>
+    <a href="#topic1">HTTP Basics</a>
+    <a href="#topic2">HTTP Methods</a>
+    <a href="#key_concepts">Key Concepts</a>
+    <a href="#references">References</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main class="container">
+  <aside class="sidebar">
+    <!-- Sidebar: table of contents and key terms -->
+    <section class="card">
+      <h2>Table of Contents</h2>
+      <ol id="toc">
+        <li><a href="#home">Homepage</a></li>
+        <li><a href="#topic1">HTTP Basics</a></li>
+        <li><a href="#topic2">HTTP Methods</a></li>
+        <li><a href="#key_concepts">Key Concepts</a></li>
+        <li><a href="#references">References</a></li>
+        <li><a href="#about">About</a></li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h3>Key Terms</h3>
+      <ul>
+        <li>HTTP</li>
+        <li>Request / Response</li>
+        <li>URI</li>
+        <li>Status Codes</li>
+        <li>Methods (GET, POST...)</li>
+      </ul>
+    </section>
+  </aside>
+
+  <section class="content">
+    <!-- Homepage section -->
+    <article id="home">
+      <h2>Abstract</h2>
+      <p>This single-file mini-site introduces the Hypertext Transfer Protocol (HTTP). It combines all pages into one document so it can be opened directly from zipped archives or file explorers without missing-file issues.</p>
+    </article>
+
+    <article>
+      <h2>Quick Start</h2>
+      <p>Use the nav above or the table of contents to jump between sections. The content below mirrors the multi-page version but uses internal anchors instead of separate files.</p>
+      <img src="https://via.placeholder.com/600x200?text=HTTP+Overview" alt="HTTP overview illustration">
+      <!-- Preview grid uses the .preview-grid selector from the stylesheet -->
+      <div class="preview-grid">
+        <div class="card">
+          <h3><a href="#topic1">HTTP Basics</a></h3>
+          <p>Overview of requests, responses, and client/server roles.</p>
+        </div>
+        <div class="card">
+          <h3><a href="#topic2">HTTP Methods</a></h3>
+          <p>Common methods (GET, POST, PUT, DELETE) and status codes.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Topic 1: HTTP Basics -->
+    <article id="topic1">
+      <h2>HTTP Basics</h2>
+      <p>HTTP (Hypertext Transfer Protocol) is an application-layer protocol used to transfer hypermedia documents (HTML, JSON, etc.). It follows a client-server model.</p>
+      <h3>Request / Response Cycle</h3>
+      <ol>
+        <li>Client sends a request (method + path + headers + optional body).</li>
+        <li>Server processes and returns a response (status code + headers + body).</li>
+        <li>Connection may be kept alive via headers to allow multiple requests on the same TCP connection.</li>
+      </ol>
+      <h3>Sample request</h3>
+      <pre>GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: example-client/1.0</pre>
+
+      <h3>Client vs Server</h3>
+      <table>
+        <thead><tr><th>Role</th><th>Typical software</th></tr></thead>
+        <tbody>
+          <tr><td>Client</td><td>Browsers, API clients</td></tr>
+          <tr><td>Server</td><td>Web servers (Nginx, Apache), application servers</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <!-- Topic 2: HTTP Methods -->
+    <article id="topic2">
+      <h2>HTTP Methods</h2>
+      <h3>GET</h3>
+      <p>Retrieves a representation of the resource. Should be safe and idempotent.</p>
+      <h3>POST</h3>
+      <p>Submits data to the server. Not necessarily idempotent.</p>
+      <h3>PUT and DELETE</h3>
+      <p>PUT updates a resource, DELETE removes it. Both are intended to be idempotent.</p>
+      <h3>Short example: Status codes</h3>
+      <ul>
+        <li>200 OK — successful GET</li>
+        <li>201 Created — successful resource creation</li>
+        <li>400 Bad Request — client error</li>
+        <li>404 Not Found — resource missing</li>
+        <li>500 Internal Server Error — server failure</li>
+      </ul>
+    </article>
+
+    <!-- Key concepts: 5 concepts -->
+    <article id="key_concepts">
+      <h2>Key Concepts</h2>
+      <h3 id="stateless">Statelessness</h3>
+      <p>HTTP is stateless: each request is independent unless state is implemented via cookies/sessions.</p>
+      <h3 id="headers">Headers</h3>
+      <p>Headers convey metadata (Content-Type, Authorization, Cache-Control) that affect how requests/responses are processed.</p>
+      <h3 id="status">Status Codes</h3>
+      <p>Numeric codes indicate request outcomes (1xx informational, 2xx success, 3xx redirection, 4xx client error, 5xx server error).</p>
+      <h3 id="security">Security (TLS)</h3>
+      <p>TLS (HTTPS) encrypts traffic between client and server to protect confidentiality and integrity.</p>
+      <h3 id="caching">Caching</h3>
+      <p>Caching stores responses for performance; headers like Cache-Control and ETag control caching behavior.</p>
+    </article>
+
+    <!-- References -->
+    <article id="references">
+      <h2>References & Resources</h2>
+      <ul>
+         <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">MDN - HTTP</a></li>
+         <li><a href="https://www.geeksforgeeks.org/html/what-is-http/"> geeksforgeeks -What is HTTP </a></li>
+
+      </ul>
+      <h3>Books & tutorials</h3>
+      <ol>
+        <li>HTTP: The Definitive Guide — O'Reilly</li>
+        <li>Interactive REST & HTTP tutorials</li>
+      </ol>
+    </article>
+
+    <!-- About -->
+    <article id="about">
+      <h2>About</h2>
+      <p>Student at Kennesaw State University building familiarity with web protocols and front-end basics.</p>
+      <h3>Project notes</h3>
+      <h3>Skills & Tools</h3>
+      <ul>
+        <li>HTML & CSS</li>
+        <li>HTTP basics</li>
+        <li>Using a text editor / IDE</li>
+      </ul>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  <p class="muted">Project milestone 1  &middot; <a href="#about">About the author</a></p>
+</footer>
+</body>
+</html>
