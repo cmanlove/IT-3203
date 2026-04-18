@@ -1,0 +1,129 @@
+/* styles.css - single stylesheet for the mini-site */
+/*
+  This file demonstrates:
+  - element selector (body)
+  - class selectors (.site-nav, .card)
+  - id selector (#toc)
+  - descendant selector (.sidebar h3)
+  - CSS Grid layout for the page (.container)
+  - Flex layout for the preview grid (.preview-grid)
+  - hover effects, margins, padding, borders, colors, font settings
+*/
+
+/* CSS Variables for consistent theming */
+/* Element selector */
+body{
+    --bg: #f9fafb;
+    --card: #ffffff;
+    --accent: #3b82f6;
+    --muted: #6b7280;
+
+    font-family: 'Times New Roman', Times, serif;
+    margin:0;
+    padding:0;
+    background:var(--accent);
+    color:darkslateblue;
+}
+
+header{
+    background:linear-gradient(90deg,var(--accent),#4c9bd6);
+    color:white;
+    padding:1rem 2rem;
+}
+header h1{margin:0}
+header .subtitle{margin-top:0.25rem; opacity:0.95}
+
+/* class selector */
+.site-nav{
+    margin-top:0.75rem;
+}
+.site-nav a{
+    color:rgba(255,255,255,0.95);
+    text-decoration:none;
+    margin-right:1rem;
+    padding:0.25rem 0.5rem;
+    border-radius:4px;
+}
+/* hover effect required */
+.site-nav a:hover{
+    background:rgba(255,255,255,0.12);
+}
+
+.container{
+    display:grid;
+    grid-template-columns: 260px 1fr;
+    gap:1rem;
+    padding:1.5rem 2rem;
+}
+
+.sidebar .card{
+    background:var(--card);
+    padding:1rem;
+    margin-bottom:1rem;
+    border-radius:6px;
+    border:1px solid #e6edf6;
+}
+
+.content{background:transparent}
+.content article{background:var(--card); padding:1rem; margin-bottom:1rem; border-radius:6px; border:1px solid #e6edf6}
+.preview-grid{display:flex; gap:1rem}
+.preview-grid .card{flex:1}
+
+.card img{max-width:100%; height:auto; display:block}
+
+footer{padding:1rem 2rem; color:white; font-size:0.9rem}
+
+/* ID selector */
+#toc a{color:var(--accent); text-decoration:none}
+#toc a:hover{ text-decoration:underline}
+
+/* table styling to satisfy requirement */
+table{width:100%; border-collapse:collapse}
+th, td{padding:0.5rem; border:1px solid aqua; text-align:left}
+
+/* small responsive tweak */
+@media (max-width:800px){
+    .container{grid-template-columns:1fr; padding:1rem}
+    .site-nav a{display:inline-block; margin-top:0.5rem}
+    .preview-grid{flex-direction:column}
+}
+
+/* utility */
+.muted{color:var(--muted)}
+
+/* demonstrate descendant selector */
+.sidebar h3{margin:0 0 0.5rem 0}
+
+/* links inside content */
+.content a{color:var(--accent)}
+.content a:hover{text-decoration:underline}
+
+/* Quiz-specific styles */
+.quiz-card{max-width:800px; margin:0 auto;}
+.question{margin:5px 0; padding:0.75rem; border-radius:6px; background:linear-gradient(180deg, #ffffff, #fbfdff); border:1px solid #e6edf6}
+.q-label{font-weight:600; margin-bottom:0.5rem; display:block}
+.options{display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem}
+.options label{background:#f3f6fb; padding:0.4rem 0.6rem; border-radius:4px; border:1px solid #e6edf6; cursor:pointer}
+.options input{margin-right:0.5rem}
+.text-input{padding:0.4rem 0.5rem; border:1px solid #d1e3ff; border-radius:4px; min-width:200px}
+.form-actions{margin-top:1rem; display:flex; gap:0.75rem}
+.btn{padding:0.5rem 0.9rem; border-radius:6px; border:1px solid rgba(0,0,0,0.08); background:#f8fafc; cursor:pointer}
+.btn.primary{background:var(--accent); color:white; border-color:rgba(0,0,0,0.06)}
+.btn.muted{background:#eef2f7}
+.btn:focus{outline:3px solid rgba(59,130,246,0.2)}
+
+.results{margin-top:1rem; padding:1rem; border-radius:6px; background:#ffffff; border:1px solid #e2eefc}
+.results-summary{display:flex; align-items:center; justify-content:space-between; gap:1rem}
+.results-summary h2{margin:0; padding:0.25rem 0.6rem; border-radius:6px}
+.results-summary h2.pass{background:#d1fae5; color:#065f46}
+.results-summary h2.fail{background:#fee2e2; color:#991b1b}
+.per-question-list{margin-top:1rem}
+.per-question-item{padding:0.6rem; border-radius:6px; border:1px solid #eef6ff; margin-bottom:0.5rem; background:#fbfcff}
+.q-result .correct{color:#065f46; font-weight:700}
+.q-result .incorrect{color:#991b1b; font-weight:700}
+.q-result .partial{color:#b45309; font-weight:700}
+
+@media (max-width:600px){
+    .options{flex-direction:column}
+    .results-summary{flex-direction:column; align-items:flex-start}
+}
