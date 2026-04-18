@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HTTP Methods</title>
+    <!-- Single shared stylesheet for the entire site -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Page: HTTPMethods.html — explains common HTTP methods and example status codes -->
+<header>
+    <h1>HTTP Methods</h1>
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="HTTPBasics.html">HTTP Basics</a>
+        <a href="HTTPMethods.html">HTTP Methods</a>
+        <a href="key_concepts.html">Key Concepts</a>
+        <a href="references.html">References</a>
+        <a href="about.html">About</a>
+        <a href="Quiz.html">Quiz</a>
+    </nav>
+</header>
+<main class="container">
+    <aside class="sidebar">
+        <section class="card">
+            <h2>Common Methods</h2>
+            <ul>
+                <li>GET</li>
+                <li>POST</li>
+                <li>PUT</li>
+                <li>DELETE</li>
+            </ul>
+        </section>
+    </aside>
+
+    <section class="content">
+        <article>
+            <h2>GET</h2>
+            <!-- Paragraph explains safety/idempotence characteristics -->
+            <p>Retrieves a representation of the resource. Should be safe and unchanged.</p>
+            <p>Some important things to note about GET requests:</p>
+            <ul>
+                <li> GET requests should never be used with sensitive data, as they can be cached and logged. They should not have side effects on the server. </li>
+                <li> GET requests can be cached by browsers and intermediate proxies, improving performance for repeated requests. </li>
+                <li> GET requests can be bookmarked and shared, as the parameters are included in the URL.</li>
+                <li> GET requests have length restrictions </li>
+                <li> GET requests can only request data not modify it </li>
+
+            </ul>
+        </article>
+        <article>
+            <h2>POST</h2>
+            <p>Submits data to the server to create or update a resource.</p>
+            <p>Some important things to note about POST requests:</p>
+            <ul>
+                <li> POST requests are not idempotent, meaning that making the same POST request multiple times can result in different outcomes (e.g., creating multiple resources). </li>
+                <li> POST requests can include a body with data to be processed by the server, such as form data or JSON payloads. </li>
+                <li> POST requests are not cached by default, as they typically involve changes to server state. </li>
+                <li> POST requests cannot be bookmarked or shared easily, as the parameters are included in the request body rather than the URL.</li>
+                <li> POST requests can be used to submit sensitive data, but should be sent over HTTPS to ensure security.</li>
+        </article>
+        <article>
+            <h2>PUT and DELETE</h2>
+            <p>PUT sends data to a server to create or update. POST AND PUT differ from each other as a Put request can be used mutiple times and produce the same unlike POST which can be used repeatedly but will produce different results each time a resource is created, DELETE removes the specified resource.</p>
+        </article>
+
+        <article>
+            <h2>Short example: Status codes</h2>
+            <!-- Unordered list of common codes for quick reference -->
+            <ul>
+                <li>200 OK - successful GET</li>
+                <li>201 Created - successful resource creation</li>
+                <li>400 Bad Request - client error</li>
+                <li>404 Not Found - resource missing</li>
+                <li>500 Internal Server Error - server failure</li>
+            </ul>
+        </article>
+    </section>
+</main>
+<footer>
+     <p class="muted">Click <a href="index.html">here</a> to return to the homepage</p>
+</footer>
+</body>
+</html>

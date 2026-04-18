@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTTP Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <section class="content">
+            <article class="card quiz-card">
+                <h1>HTTP Knowledge Quiz</h1>
+
+                <p class="muted">Complete the quiz below. Results and scoring will appear immediately when you submit. Scroll down and click return to home when done</p>
+
+                <form id="quiz-form">
+                    <!-- Question 1: Fill-in-the-blank -->
+                    <div class="question" data-question-index="1">
+                        <label class="q-label">1. Fill in the blank: The HTTP method used to request data without modifying the server is <input type="text" name="q1" class="text-input" placeholder="type your answer here">.</label>
+                        <div class="feedback" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Question 2: Multiple choice (radio) -->
+                    <div class="question" data-question-index="2">
+                        <p class="q-label">2. Which status code indicates a successful HTTP request?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="200"> 200</label>
+                            <label><input type="radio" name="q2" value="301"> 301</label>
+                            <label><input type="radio" name="q2" value="404"> 404</label>
+                            <label><input type="radio" name="q2" value="500"> 500</label>
+                        </div>
+                        <div class="feedback" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Question 3: Multiple choice (radio) -->
+                    <div class="question" data-question-index="3">
+                        <p class="q-label">3. Which header is commonly used to indicate the media type of the resource?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="Content-Type"> Content-Type</label>
+                            <label><input type="radio" name="q3" value="Accept"> Accept</label>
+                            <label><input type="radio" name="q3" value="Host"> Host</label>
+                            <label><input type="radio" name="q3" value="User-Agent"> User-Agent</label>
+                        </div>
+                        <div class="feedback" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Question 4: Multiple choice (radio) -->
+                    <div class="question" data-question-index="4">
+                        <p class="q-label">4. Which HTTP method is typically used for creating a new resource?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q4" value="GET"> GET</label>
+                            <label><input type="radio" name="q4" value="POST"> POST</label>
+                            <label><input type="radio" name="q4" value="DELETE"> DELETE</label>
+                            <label><input type="radio" name="q4" value="OPTIONS"> OPTIONS</label>
+                        </div>
+                        <div class="feedback" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Question 5: Multi-selection (checkboxes) -->
+                    <div class="question" data-question-index="5">
+                        <p class="q-label">5. Select all that are valid HTTP methods (more than one may be correct):</p>
+                        <div class="options">
+                            <label><input type="checkbox" name="q5" value="GET"> GET</label>
+                            <label><input type="checkbox" name="q5" value="RECEIVE"> RECEIVE</label>
+                            <label><input type="checkbox" name="q5" value="PLACE"> PLACE</label>
+                            <label><input type="checkbox" name="q5" value="PUT"> PUT</label>
+                            <label><input type="checkbox" name="q5" value="POST"> Post</label>
+                        </div>
+                        <div class="feedback" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn primary">Submit</button>
+                        <button type="button" id="reset-btn" class="btn muted">Retake / Reset</button>
+                    </div>
+                </form>
+
+                <section id="results" class="results" aria-live="polite" hidden>
+                    <!-- Summary and per question results will be added here -->
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <script src="Quiz.js"></script>
+
+<footer>
+    <p class="muted">Click <a href="index.html">here</a> to return to the homepage</p>
+</footer>
+</body>
+</html>
