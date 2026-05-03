@@ -1,0 +1,190 @@
+/* 1. ROOT VARIABLES */
+:root {
+    --primary: #2c3e50;
+    --accent: #3b82f6;   /* Main Blue Background */
+    --card: #ffffff;
+    --success: #27ae60;
+    --error: #e74c3c;
+    --partial: #f39c12;
+    --muted: #6b7280;
+}
+
+* {
+    box-sizing: border-box; /* Critical for mobile: padding doesn't break width */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--accent); /* Background is blue */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 2. Header & Navigation */
+header {
+    background: linear-gradient(90deg, var(--accent), #4c9bd6);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.site-nav {
+    margin-top: 1rem;
+}
+
+.site-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Default to stacked for mobile */
+    gap: 10px;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 12px; /* Large touch target for mobile fingers */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    display: block;
+    transition: 0.3s;
+}
+
+.site-nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 3. Main Container & Layout */
+.container {
+    flex: 1; /* Pushes footer down */
+    width: 95%; /* Fluid width for mobile */
+    max-width: 1000px; /* Limits width on desktop */
+    margin: 20px auto;
+    background: var(--card); /* Box is white */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* 4. Images & Tables */
+img {
+    max-width: 100%; /* Prevents images from overflowing screen */
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Responsive Table Wrapper */
+.table-wrapper {
+    overflow-x: auto; /* Allows table to scroll sideways on small phones */
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px; /* Ensures table doesn't get too squished */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* 5. Quiz Form Controls */
+.question-block {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.question-block p, .question-block label {
+    font-weight: 600;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px; /* Prevents iOS auto-zoom on focus */
+}
+
+.actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons on mobile */
+    gap: 10px;
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#submit-btn { background: var(--primary); color: white; }
+#reset-btn { background: #95a5a6; color: white; }
+
+/* 6. Media Queries (At least two widths) */
+
+/* Tablet & Desktop (Widths > 768px) */
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 40px;
+        width: 85%;
+    }
+
+
+    .site-nav ul {
+        flex-direction: row;
+        justify-content: center; /* Center the links */
+        gap: 20px;              /* Space between links */
+    }
+
+    .site-nav a {
+        display: inline-block;
+        background: transparent; /* Cleaner look for desktop */
+        padding: 5px 15px;      /* Adjust padding for horizontal flow */
+    }
+
+
+    .actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    /* Fill white space by putting questions in a grid */
+    #quiz-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .question-block:last-of-type, .actions, #results {
+        grid-column: span 2;
+    }
+}
+
+/* Large Desktop (Widths > 1200px) */
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1100px;
+    }
+}
+
+/* 7. Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 0.9rem;
+}
